@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=RPL-Hexapod.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod -TC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod/arm-gcc-link.ld -g">
+      <target file="RPL-Hexapod.elf" lastModified="1583d69727e">
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="1583d696c35"/>
+         <source file="..\obj\main.o" lastModified="1583d696c64"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1583d696cd1"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="1583d696d4e"/>
+         <source file="..\obj\printf.o" lastModified="1583d696dbb"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1583d696e0a"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="1583d696e58"/>
+         <source file="..\obj\syscalls.o" lastModified="1583d696ec5"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="1583d696f42"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="1583d696f81"/>
+         <source file="..\obj\misc.o" lastModified="1583d696fcf"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="1583d69707b"/>
+      </target>
+   </processor>
+</history>
