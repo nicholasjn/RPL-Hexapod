@@ -1,19 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=RPL-Hexapod.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod -TC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod/arm-gcc-link.ld -g">
-      <target file="RPL-Hexapod.elf" lastModified="1583d69727e">
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="1583d696c35"/>
-         <source file="..\obj\main.o" lastModified="1583d696c64"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1583d696cd1"/>
-         <source file="..\obj\stm32f4xx_adc.o" lastModified="1583d696d4e"/>
-         <source file="..\obj\printf.o" lastModified="1583d696dbb"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1583d696e0a"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="1583d696e58"/>
-         <source file="..\obj\syscalls.o" lastModified="1583d696ec5"/>
-         <source file="..\obj\stm32f4xx_i2c.o" lastModified="1583d696f42"/>
-         <source file="..\obj\stm32f4xx_exti.o" lastModified="1583d696f81"/>
-         <source file="..\obj\misc.o" lastModified="1583d696fcf"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="1583d69707b"/>
+      <target file="RPL-Hexapod.elf" lastModified="1583d70b459">
+         <source file="..\obj\delay.o" lastModified="1583d70ae11"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="1583d6d06ca"/>
+         <source file="..\obj\uart.o" lastModified="1583d6de7a9"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="1583d6bee98"/>
+         <source file="..\obj\main.o" lastModified="1583d6beed2"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1583d6d0747"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="1583d6d07b4"/>
+         <source file="..\obj\printf.o" lastModified="1583d6bf03f"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1583d6d0812"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="1583d6d0850"/>
+         <source file="..\obj\syscalls.o" lastModified="1583d6bf14d"/>
+         <source file="..\obj\srf_tpa.o" lastModified="1583d70aedc"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="1583d6d08ec"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="1583d6d093b"/>
+         <source file="..\obj\misc.o" lastModified="1583d6d0989"/>
+         <source file="..\obj\i2c2.o" lastModified="1583d70af69"/>
+         <source file="..\obj\jalan_dasar.o" lastModified="1583d70b1bb"/>
+         <source file="..\obj\timer3.o" lastModified="1583d70b219"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="1583d6d0a63"/>
       </target>
    </processor>
 </history>
