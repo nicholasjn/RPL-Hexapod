@@ -5,12 +5,19 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothSocket;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.View;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.UUID;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ArrayList mDevice = new ArrayList();
         //Bluetooth Setup
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        public BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(mBluetoothAdapter == null){
             //This device does'n support bluetooth
             //Insert your error command below
@@ -62,6 +69,99 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+
     }
 }
 
+//Class to establish a connection to paired device in separate thread
+private class ConnectThread extends Thread {
+    private final BluetoothSocket mmSocket;
+    private final BluetoothDevice mmDevice;
+    private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-" +
+            "00805f9b34fb");
+
+    public ConnectThread(BluetoothDevice device){
+        //Use temp variabel because mmDevice is final
+        BluetoothSocket temp = null;
+        mmDevice = device;
+
+        try{
+            //I assigned UUID that contain string as above to MY_UUID
+            temp = device.createRfcommSocketToServiceRecord(MY_UUID);
+        } catch (IOException e){}
+        mmSocket = temp;
+    }
+
+    public void run(){
+        mBluetoothAdapter.cancelDiscovery();
+
+        try {
+            mmSocket.connect();
+        } catch (IOException connectException){
+            //Unable to connect; close the socket and get out
+            try{
+                mmSocket.close();
+            } catch (IOException closeException){}
+            return;
+        }
+
+        manageConnectedSocket(mmSocket);
+    }
+
+    public void cancel(){
+        try {
+            mmSocket.close();
+        } catch (IOException e){}
+    }
+}
+
+private class ConnectedThread extends Thread {
+    private final BluetoothSocket mmSocket;
+    private final InputStream mmInStream;
+    private final OutputStream mmOutStream;
+
+    public ConnectedThread(BluetoothSocket socket){
+        mmSocket = socket;
+        InputStream tempIn = null;
+        OutputStream tempOut = null;
+
+        //Use temp object because the real is final
+        try {
+            tempIn = socket.getInputStream();
+            tempOut = socket.getOutputStream();
+        } catch (IOException e) {}
+
+        mmInStream = tempIn;
+        mmOutStream = tempOut;
+    }
+
+    //Method to send data to robot.
+    public void writeBt(byte[] bytes){
+        try {
+            mmOutStream.write(bytes);
+        } catch (IOException e){}
+    }
+
+    //Method to read data from robot
+    public void readBt(){
+        byte[] buffer = new byte[1024];
+        int bytes;
+
+        while(1){
+            try{
+                bytes = mmInStream.read(buffer);
+                mHandler.obtainMessage(MESSAGE_READ, bytes -1, buffer);
+                        .sendToTarget();
+            } catch (IOException e){
+                break;
+            }
+        }
+    }
+
+    //Method to shutdown connection.
+    public void cancel(){
+        try {
+            mmSocket.close();
+        } catch (IOException e){}
+    }
+}
