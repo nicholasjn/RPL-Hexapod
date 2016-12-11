@@ -43,6 +43,12 @@ UART_t UART[] = {
 // PORT , PIN      , Clock              , Source
   {GPIOD,GPIO_Pin_8,RCC_AHB1Periph_GPIOD,GPIO_PinSource8},  // TX an PD8
   {GPIOD,GPIO_Pin_9,RCC_AHB1Periph_GPIOD,GPIO_PinSource9}}, // RX an PD9
+
+  // Name, Clock               , AF-UART      , UART , Baud , Interrupt
+    {COM2,RCC_APB1Periph_USART2,GPIO_AF_USART2,USART2,115200,USART2_IRQn, // UART3 mit 115200 Baud
+  // PORT , PIN      , Clock              , Source
+    {GPIOA,GPIO_Pin_2,RCC_AHB1Periph_GPIOA,GPIO_PinSource2},  // TX an PA2
+    {GPIOA,GPIO_Pin_3,RCC_AHB1Periph_GPIOA,GPIO_PinSource3}}, // RX an PA3
 };
 
 
@@ -384,16 +390,16 @@ void P_UART_RX_INT(uint8_t int_nr, uint16_t wert)
 //--------------------------------------------------------------
 // UART2-Interrupt
 //--------------------------------------------------------------
-//void USART2_IRQHandler(void) {
-//  uint16_t wert;
-//
-//  if (USART_GetITStatus(USART2, USART_IT_RXNE) == SET) {
-//    // wenn ein Byte im Empfangspuffer steht
-//    wert=USART_ReceiveData(USART2);
-//    // Byte speichern
-//    P_UART_RX_INT(USART2_IRQn,wert);
-//  }
-//}
+void USART2_IRQHandler(void) {
+  uint16_t wert;
+
+  if (USART_GetITStatus(USART2, USART_IT_RXNE) == SET) {
+    // wenn ein Byte im Empfangspuffer steht
+    wert=USART_ReceiveData(USART2);
+    // Byte speichern
+    P_UART_RX_INT(USART2_IRQn,wert);
+  }
+}
 
 
 //--------------------------------------------------------------

@@ -3,9 +3,9 @@
  *
  * @file	   "jalan_dasar.c"
  * @author	   Rudy Nurhadi
- * @co-author  Nicholas J Nainggolan
- * @version	09/Mei/2016
- * @version 11/November/2016
+ * @co-author  Nicholas Nainggolan
+ * @version	   09/Mei/2016
+ * @version    11/November/2016
  *
  */
 

@@ -1,26 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=RPL-Hexapod.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod -TC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod/arm-gcc-link.ld -g">
-      <target file="RPL-Hexapod.elf" lastModified="1583d70b459">
-         <source file="..\obj\delay.o" lastModified="1583d70ae11"/>
-         <source file="..\obj\stm32f4xx_usart.o" lastModified="1583d6d06ca"/>
-         <source file="..\obj\uart.o" lastModified="1583d6de7a9"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="1583d6bee98"/>
-         <source file="..\obj\main.o" lastModified="1583d6beed2"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1583d6d0747"/>
-         <source file="..\obj\stm32f4xx_adc.o" lastModified="1583d6d07b4"/>
-         <source file="..\obj\printf.o" lastModified="1583d6bf03f"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1583d6d0812"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="1583d6d0850"/>
-         <source file="..\obj\syscalls.o" lastModified="1583d6bf14d"/>
-         <source file="..\obj\srf_tpa.o" lastModified="1583d70aedc"/>
-         <source file="..\obj\stm32f4xx_i2c.o" lastModified="1583d6d08ec"/>
-         <source file="..\obj\stm32f4xx_exti.o" lastModified="1583d6d093b"/>
-         <source file="..\obj\misc.o" lastModified="1583d6d0989"/>
-         <source file="..\obj\i2c2.o" lastModified="1583d70af69"/>
-         <source file="..\obj\jalan_dasar.o" lastModified="1583d70b1bb"/>
-         <source file="..\obj\timer3.o" lastModified="1583d70b219"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="1583d6d0a63"/>
+   <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=RPL-Hexapod.map -O0 --gc-sections -lm -lgcc -lc -lnosys -LC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod -TC:\CooCox\CoIDE\configuration\ProgramData\RPL-Hexapod/arm-gcc-link.ld -g">
+      <target file="RPL-Hexapod.elf" lastModified="158d9f1ff3d">
+         <source file="..\obj\delay.o" lastModified="158d9f1f25d"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="158d9f1f2c6"/>
+         <source file="..\obj\uart.o" lastModified="158d9f1f342"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="158d9f1f37d"/>
+         <source file="..\obj\main.o" lastModified="158d9f1f3eb"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="158d9f1f469"/>
+         <source file="..\obj\tm_stm32f4_usart.o" lastModified="158d9f1f4ce"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="158d9f1f53f"/>
+         <source file="..\obj\printf.o" lastModified="158d9f1f5a2"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="158d9f1f5f6"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="158d9f1f63f"/>
+         <source file="..\obj\syscalls.o" lastModified="158d9f1f68b"/>
+         <source file="..\obj\srf_tpa.o" lastModified="158d9f1f788"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="158d9f1f7f7"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="158d9f1f844"/>
+         <source file="..\obj\misc.o" lastModified="158d9f1f890"/>
+         <source file="..\obj\i2c2.o" lastModified="158d9f1f901"/>
+         <source file="..\obj\jalan_dasar.o" lastModified="158d9f1fb28"/>
+         <source file="..\obj\tm_stm32f4_gpio.o" lastModified="158d9f1fb84"/>
+         <source file="..\obj\timer3.o" lastModified="158d9f1fbd5"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="158d9f1fc88"/>
       </target>
    </processor>
 </history>
